@@ -3,60 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asistente de Roleplay Médico</title>
+    <title>Asistente de Roleplay Avanzado</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-default">
+<body>
 
-    <header>
-        <h1>Asistente de Roleplay Médico</h1>
-        <div class="theme-controls">
+    <header class="app-header">
+        <h1>Asistente de Roleplay</h1>
+        <div class="controls-container">
             <div class="control-group">
-                <label for="color-picker">Color Principal:</label>
-                <input type="color" id="color-picker" value="#5c6bc0">
+                <label for="category-selector">Categoría:</label>
+                <select id="category-selector"></select>
             </div>
-            <div class="control-group">
-                <label for="bg-selector">Fondo:</label>
-                <select id="bg-selector">
-                    <option value="default">Oscuro (Default)</option>
-                    <option value="light-mode">Claro</option>
-                    <option value="pink-dream">Rosa</option>
-                    <option value="custom-image">Galaxia</option>
-                </select>
-            </div>
+            <button id="add-command-btn" class="button-primary">+ Agregar Comando</button>
         </div>
     </header>
 
-    <main class="container">
-        <div class="command-card" id="comando-herida-bala">
-            <div class="card-header">
-                <span>/me y /do - Herida de Bala</span>
-                <button class="copy-btn" title="Copiar al portapapeles">Copiar</button>
-            </div>
-            <div class="card-body" contenteditable="true">
-/me saca unas pinzas esterilizadas de su maletín médico.
-/do Se vería al enfermero preparado para atender una herida.
-/me con cuidado, procedería a extraer el proyectil de la herida.
-/do El proyectil sería extraído con éxito, dejando una herida limpia.
-            </div>
-        </div>
-
-        <div class="command-card" id="comando-revision-general">
-            <div class="card-header">
-                <span>/me y /do - Revisión General</span>
-                <button class="copy-btn" title="Copiar al portapapeles">Copiar</button>
-            </div>
-            <div class="card-body" contenteditable="true">
-/me tomaría un estetoscopio y lo colocaría en el pecho del paciente.
-/do Se podrían escuchar los latidos del corazón y la respiración.
-/me procedería a tomar la presión arterial con un tensiómetro.
-/do La presión arterial del paciente sería registrada.
-            </div>
-        </div>
-    </main>
+    <main id="commands-container" class="container">
+        </main>
 
     <script src="script.js"></script>
 </body>
