@@ -1,0 +1,54 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+    // --- Funcionalidad de Copiar Rápido (sin alerta) ---
+    document.querySelectorAll('.copy-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const cardBody = button.closest('.command-card').querySelector('.card-body');
+            const textToCopy = cardBody.innerText;
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = button.textContent;
+                button.textContent = '¡Copiado!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 1500);
+            }).catch(err => {
+                console.error('Error al copiar: ', err);
+            });
+        });
+    });
+
+    // --- Funcionalidad de Editar y Guardar Edición (usando localStorage) ---
+    document.querySelectorAll('.card-body[contenteditable="true"]').forEach(editableArea => {
+        const storageId = editableArea.parentElement.id;
+
+        // Al cargar la página, intenta cargar el texto guardado
+        if (localStorage.getItem(storageId)) {
+            editableArea.innerText = localStorage.getItem(storageId);
+        }
+
+        // Cuando dejas de editar (evento 'blur'), guarda el nuevo contenido
+        editableArea.addEventListener('blur', () => {
+            localStorage.setItem(storageId, editableArea.innerText);
+        });
+    });
+
+    // --- Funcionalidad de Personalización de Tema ---
+    const colorPicker = document.getElementById('color-picker');
+    const bgSelector = document.getElementById('bg-selector');
+
+    // Cambiar el color principal
+    colorPicker.addEventListener('input', (event) => {
+        document.documentElement.style.setProperty('--primary-color', event.target.value);
+    });
+
+    // Cambiar el fondo
+    bgSelector.addEventListener('change', (event) => {
+        document.body.className = ''; // Limpia clases anteriores
+        const selectedClass = event.target.value === 'default' ? 'bg-default' : `bg-${event.target.value}`;
+        document.body.classList.add(selectedClass);
+    });
+});

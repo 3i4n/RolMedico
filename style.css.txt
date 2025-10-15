@@ -1,0 +1,106 @@
+/* --- Variables y Estilos Globales --- */
+:root {
+    --primary-color: #5c6bc0;
+    --background-card: #282a36;
+    --text-color: #f8f8f2;
+    --font-family-main: 'Roboto', sans-serif;
+    --font-family-code: 'Source Code Pro', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family-main);
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* --- Fondos Predefinidos --- */
+body.bg-default { background-color: #1e1e2f; color: var(--text-color); }
+body.bg-light-mode { background-color: #f4f4f9; color: #222; }
+body.bg-pink-dream { background: linear-gradient(45deg, #ffc0cb, #f3a0a0); color: #333; }
+body.bg-custom-image {
+    background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2071&auto=format&fit=crop');
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--text-color);
+}
+
+
+/* --- Encabezado y Controles --- */
+header {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+h1 { color: var(--text-color); margin-bottom: 20px; }
+
+.theme-controls {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.control-group { display: flex; align-items: center; gap: 10px; }
+.control-group label { font-weight: bold; }
+input[type="color"], select {
+    padding: 5px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+}
+
+/* --- Contenedor Principal y Tarjetas --- */
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+.command-card {
+    background-color: var(--background-card);
+    border-radius: 12px;
+    border: 1px solid var(--primary-color);
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    padding: 10px 15px;
+    font-weight: bold;
+    color: white;
+}
+
+.copy-btn {
+    background-color: white;
+    color: var(--primary-color);
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+}
+
+.copy-btn:hover { transform: scale(1.1); }
+.copy-btn.copied { background-color: #4caf50; color: white; }
+
+.card-body {
+    padding: 20px;
+    font-family: var(--font-family-code);
+    white-space: pre-wrap;
+    min-height: 100px;
+    outline: none;
+    line-height: 1.6;
+}
