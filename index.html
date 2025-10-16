@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hospital de Pillbox Hill 🏥</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container" id="vistaPrincipal">
+        <h1>Hospital de Pillbox Hill 🏥</h1>
+        <label for="seleccionHospital">Seleccionar hospital / aviso:</label>
+        <select id="seleccionHospital">
+            <option value="pillbox">Hospital de Pillbox Hill 🏥</option>
+            <option value="grand">Hospital de Grand Senora 🏥</option>
+            <option value="paleto">Hospital de Paleto 🏥</option>
+            <option value="aviso">Aviso 📢</option>
+        </select>
+
+        <label for="nombrePaciente">Nombre del paciente:</label>
+        <input type="text" id="nombrePaciente" />
+
+        <label for="seleccionCaso">Tipo de caso:</label>
+        <select id="seleccionCaso"></select>
+
+        <div class="header-buttons">
+            <button id="btnAgregarCaso" title="Agregar nuevo tipo de caso">+ Agregar nuevo tipo de caso</button>
+            <button id="btnEliminarCaso" title="Eliminar caso seleccionado">🗑️ Eliminar caso</button>
+        </div>
+
+        <label>Comandos (/me y /do) para el caso seleccionado:</label>
+        <div id="comandosList"></div>
+        <button id="agregarComandoBtn" class="btn-small">+ Agregar comando</button>
+        <button id="guardarComandosBtn" class="btn-small">Guardar comandos</button>
+
+        <label>Seleccionar color:</label>
+        <div class="emojis-container" id="selectorEmoji">
+            <button data-value="^9" title="🌸">🌸</button>
+            <button data-value="^8" title="🍒">🍒</button>
+            <button data-value="^7" title="🐇">🐇</button>
+            <button data-value="^6" title="🔮" class="selected">🔮</button>
+            <button data-value="^5" title="❄️">❄️</button>
+            <button data-value="^4" title="💙">💙</button>
+            <button data-value="^3" title="☀️">☀️</button>
+            <button data-value="^2" title="🍀">🍀</button>
+            <button data-value="^1" title="🩸">🩸</button>
+        </div>
+
+        <button id="generarBtn" style="margin-top:20px;">Generar informe</button>
+
+        <label>Informe generado (editable):</label>
+        <textarea id="informe" spellcheck="false"></textarea>
+        <button id="guardarInformeEditadoBtn" class="btn-small">Guardar informe editado</button>
+        <button id="copiarInformeBtn" class="btn-small">Copiar informe</button>
+        <button id="verInformesBtn" class="btn-small">Ver informes guardados</button>
+    </div>
+
+    <div class="container hidden" id="vistaInformes">
+        <button id="volverBtn" class="btn-small">← Volver</button>
+        <label for="buscadorInformes">Buscar informes por paciente:</label>
+        <input type="text" id="buscadorInformes" placeholder="Ingrese nombre de paciente" />
+        <div class="informes-list" id="listaInformes"></div>
+        <div class="detalle-informe hidden" id="detalleInforme">
+            <h3>Informe de: <span id="detallePaciente"></span></h3>
+            <pre id="detalleContenido"></pre>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
